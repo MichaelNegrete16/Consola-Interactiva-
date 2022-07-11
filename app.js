@@ -1,7 +1,7 @@
 // Paquetes de terceros
 require('colors')
 // Helpers
-const { mostrarMenu, pausa } = require('./helpers/mensajes')
+const { inquirerMenu } = require('./helpers/inquirer')
 
 
 
@@ -12,9 +12,8 @@ const main = async() => {
     let opt = ''
 
     do {
-        
-        opt = await mostrarMenu()
-        if( opt !== '0' ) await pausa()
+
+        opt = await inquirerMenu()
 
     } while (opt !== '0');
     
