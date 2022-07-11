@@ -1,6 +1,7 @@
 // Paquetes de terceros
 require('colors')
 // Helpers
+const { guardarDB } = require('./helpers/guardarArchivo')
 const { inquirerMenu, pausa, leerInput } = require('./helpers/inquirer')
 const Tareas = require('./models/tareas')
 
@@ -29,6 +30,8 @@ const main = async() => {
                 console.log(tareas.listadoArr)
                 break;
         }
+
+        // guardarDB(tareas.listadoArr)
 
         await pausa()
 
