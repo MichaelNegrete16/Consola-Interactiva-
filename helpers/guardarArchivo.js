@@ -15,7 +15,6 @@ const leerDB = () => {
     const info = fs.readFileSync(archivo, {encoding: 'utf-8'})
     // Cambiar de string a JSON
     const data = JSON.parse(info)
-    console.log(data)
     
     return data
 }

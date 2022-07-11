@@ -15,13 +15,11 @@ const main = async() => {
     // Crear modelado
     const tareas = new Tareas()
 
-    // Leer tareas
+    // Leer tareas y cargar
     const tareasDB = leerDB()
     if(tareasDB){
-        // Establecer las tareas
+        tareas.cargarTareasFromArr(tareasDB)
     }
-    
-    await pausa()
 
     do {
         //  Imprime el menu
@@ -38,8 +36,9 @@ const main = async() => {
                 console.log(tareas.listadoArr)
                 break;
         }
-
-        // guardarDB(tareas.listadoArr)
+        
+        // guardar en el archivo .json
+        guardarDB(tareas.listadoArr)
 
         await pausa()
 
