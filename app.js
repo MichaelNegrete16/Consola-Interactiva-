@@ -9,15 +9,13 @@ const Tareas = require('./models/tareas')
 console.clear()
 
 const main = async() => {
-    console.log('Hola Mundo')
 
     let opt = ''
-
     // Crear modelado
     const tareas = new Tareas()
 
     do {
-
+        //  Imprime el menu
         opt = await inquirerMenu()
 
         switch (opt) {
@@ -28,15 +26,14 @@ const main = async() => {
                 break;
             case '2':
                 // Listar tarea
-                console.log(tareas._listado)
+                console.log(tareas.listadoArr)
                 break;
         }
 
         await pausa()
 
     } while (opt !== '0');
-    
-    // pausa()
+
 }   
 
 main()
