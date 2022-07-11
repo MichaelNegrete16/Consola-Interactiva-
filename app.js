@@ -1,7 +1,7 @@
 // Paquetes de terceros
 require('colors')
 // Helpers
-const { guardarDB } = require('./helpers/guardarArchivo')
+const { guardarDB, leerDB } = require('./helpers/guardarArchivo')
 const { inquirerMenu, pausa, leerInput } = require('./helpers/inquirer')
 const Tareas = require('./models/tareas')
 
@@ -14,6 +14,14 @@ const main = async() => {
     let opt = ''
     // Crear modelado
     const tareas = new Tareas()
+
+    // Leer tareas
+    const tareasDB = leerDB()
+    if(tareasDB){
+        // Establecer las tareas
+    }
+    
+    await pausa()
 
     do {
         //  Imprime el menu
