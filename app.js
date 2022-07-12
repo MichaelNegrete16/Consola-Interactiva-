@@ -36,6 +36,14 @@ const main = async() => {
                 console.log('')
                 tareas.listadoCompleto()
                 break;
+            case '3':
+                // Listar tareas completadas
+                tareas.listarPendientesCompletadas(true)
+                break;
+            case '4':
+                // Listar tareas completadas
+                tareas.listarPendientesCompletadas(false)
+                break;
         }
         
         // guardar en el archivo .json

@@ -41,6 +41,30 @@ class Tareas {
 
     }
 
+    listarPendientesCompletadas( completadas = true){
+
+        let contador = 0
+        this.listadoArr.forEach(tarea => {
+
+            if(completadas){
+
+                if(tarea.completadoEn){
+                    contador+=1
+                    console.log( `${contador.toString().green}. ${tarea.desc} :: ${ tarea.completadoEn}` )
+                }   
+
+            }else{
+
+                if(!tarea.completadoEn){
+                    contador+=1
+                    console.log( `${contador.toString().green}. ${tarea.desc} :: ${ (tarea.completadoEn) ? 'Completado'.green : 'Pendiente'.red }` )
+                }   
+
+            }
+        })
+
+    }
+
 }
 
 module.exports = Tareas
