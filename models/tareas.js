@@ -71,6 +71,27 @@ class Tareas {
 
     }
 
+    toggleCompletada(ids = []){
+
+        ids.forEach(id => {
+            const tarea = this._listado[id]
+
+            // Verificar si no esta completada 
+            if(!tarea.completadoEn){
+                tarea.completadoEn = new Date().toISOString()
+            }
+        
+        })
+
+        this.listadoArr.forEach(tarea => {
+            // Evaluar si la tarea para quitarle el completado
+            if(!ids.includes(tarea.id)){
+                this._listado[tarea.id].completadoEn = null
+            }
+        })
+
+    }
+
 }
 
 module.exports = Tareas
