@@ -134,11 +134,42 @@ const confirmar = async (message) => {
 
 }
 
+const mostrarListadoChecklist = async (tareas = []) => {
+
+    const choices = tareas.map( (tarea,idx) => {
+        
+        const i = (`${idx + 1}.`.green)
+
+        return {
+            value: tarea.id,
+            name: `${i} ${tarea.desc}`,
+            checked: (tarea.completadoEn) ? true : false
+        }
+    })
+
+    const pregunta = [
+        {
+            type: 'checkbox',
+            name: 'ids',
+            message: 'Selecciones',
+            choices
+        }
+    ]
+
+    // Retornar el id del que se va a borrar
+    const {ids} = await inquirer.prompt(pregunta)
+
+    return ids
+
+}
+
+
+
 
 module.exports = {
     inquirerMenu,
     pausa,
     leerInput,
     listadoTareasBorrar,
-    confirmar
+    confirmar,mostrarListadoChecklist
 }
